@@ -16,3 +16,6 @@ Data camp project with Jamie Quinn as a mentor
 * Work on the analysis - totals and percentages.
 * Work on data visualisation for the different figures in the paper.
 * Rmarkdown of the results.
+
+* Write a blog.
+* Interview with Selina.
