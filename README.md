@@ -10,6 +10,9 @@ Data camp project with Jamie Quinn as a mentor
 
 ### Our project notes can be found [here](https://docs.google.com/document/d/1MzqF3U35O7aKtR7b6NOpxSJd44H4EprK6Qt-dxIdjMA/edit?usp=sharing)
 
+### We are using the Data carpentries R for social scientists course for help
+[Here is the link to this course](https://datacarpentry.org/r-socialsci/)
+
 ## Milestones:
 * Relook at carpentries course.
 * Work on reformatting tables into the needed data and picking out a column/variable.
