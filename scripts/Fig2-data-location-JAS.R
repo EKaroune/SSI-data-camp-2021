@@ -10,14 +10,22 @@ names(Open_Phyto_2020_cleaned)
 #selecting for column needed for data location
 Open_Phyto_2020_cleaned[[11]]
 
-#this is the rows and column needed for dat location and JAS
+#this is the rows and column needed for data location and JAS
 Open_Phyto_2020_cleaned[95:156,11]
 
 #getting data location results for JAS in a tibble
 data_location_jas <- Open_Phyto_2020_cleaned[95:156,11]
 
-data_location_jas <- factor(c("N","Graph","Table","pdf",".docx",".xlsx","Repository"))
 
-levels(data_location_jas)
-nlevels(data_location_jas)
 
+Open_Phyto_2020_cleaned %>%
+  rename_with(make.names) %>%
+  filter(Journal == "Journal of Archaeological Science") %>% 
+  count(Data.location)
+
+install.packages("here")
+
+library(tidyverse)
+library(here)
+
+interviews <- read_csv(here("raw data", "Open_Phyto_2020_cleaned.csv"))
