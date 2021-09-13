@@ -7,8 +7,10 @@ class(Open_Phyto_2020_cleaned)
 
 names(Open_Phyto_2020_cleaned)
 
+#selecting for column needed for data location
 Open_Phyto_2020_cleaned[[11]]
 
+#this is the rows and column needed for dat location and JAS
 Open_Phyto_2020_cleaned[95:156,11]
 
 #getting data location results for JAS in a tibble
