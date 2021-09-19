@@ -21,8 +21,8 @@ data_locations_percent <- Open_phytos %>%
   count(Data.location)
   
 data_locations_percent2 <- data_locations_percent %>% 
-  mutate(Percent = n / sum(n) * 100)
-
+  mutate(Percent = n / sum(n) * 100) %>% 
+  
 library(ggplot2)
 
 data_locations_percent2 %>% 
@@ -33,5 +33,9 @@ data_locations_percent2 %>%
   geom_text(aes(label=Percent), vjust = 1.6, color = "black", size = 3.5) +
   labs(title = "Data location in Journal of Archaeological Science articles",
        x = "Data location",
-       y = " Percentage")
+       y = " Percentage") +
+  scale_x_discrete(limits=c("N","Graph","Table","pdf",".docx",".xlsx"))
+  
+  
+
              
