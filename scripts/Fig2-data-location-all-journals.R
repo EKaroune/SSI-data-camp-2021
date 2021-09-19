@@ -26,5 +26,6 @@ data_locations_all_percent %>%
   theme_minimal() +
   labs(title = "Location of phytolith data in journals sampled",
        x = "Journal",
-       y = " Percentage of articles")
+       y = " Percentage of articles") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1))
   
