@@ -21,7 +21,7 @@ library(ggplot2)
 
 data_locations_all_percent %>% 
   ggplot(aes(x = Journal, y = Percent, fill = Data.location)) +
-  geom_col() +
+  geom_col(color = "black") +
   scale_fill_brewer(palette="Dark2") +
   theme_minimal() +
   labs(title = "Location of phytolith data in journals sampled",
