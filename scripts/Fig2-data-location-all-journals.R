@@ -20,12 +20,14 @@ data_locations_all_percent <- Data_location_all_journal %>%
 library(ggplot2)
 
 data_locations_all_percent %>% 
-  ggplot(aes(x = Journal, y = Percent, fill = Data.location)) +
+  ggplot(aes(x = factor(Journal), y = Percent, fill = Data.location)) +
   geom_col(color = "black") +
-  scale_fill_brewer(palette="Dark2") +
   theme_minimal() +
   labs(title = "Location of phytolith data in journals sampled",
        x = "Journal",
        y = " Percentage of articles") +
-  theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1))
+  theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1)) +
+  scale_x_discrete(limits = c("Vegetation History and Archaeobotany", "Archaeological and Anthropological Sciences", "Environmental Archaeology", "The Holocene", "Journal of Archaeological Science", "Journal of Archaeological Science reports", "Quaternary International", "Antiquity", "Journal of Field Archaeology",	
+"Journal of Anthropological Archaeology", "PLoS One","Proceedings of the National Academy of Sciences")) +
+  scale_fill_brewer(palette = "Dark2", limits = c("N", "Graph", "Table", ".docx", "pdf", ".xlsx", ".csv", "Repository"))
   
