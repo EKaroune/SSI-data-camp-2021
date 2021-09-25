@@ -29,6 +29,6 @@ data_locations_all_percent %>%
        y = " Percentage of articles") + #labelling the graph
   theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1, size = 8)) +
   scale_x_discrete(limits = c("Vegetation History and Archaeobotany", "Archaeological and Anthropological Sciences", "Environmental Archaeology", "The Holocene", "Journal of Archaeological Science", "Journal of Archaeological Science reports", "Quaternary International", "Antiquity", "Journal of Field Archaeology",	
-"Journal of Anthropological Archaeology", "PLoS One","Proceedings of the National Academy of Sciences")) +
+"Journal of Anthropological Archaeology", "PLoS One","Proceedings of the National Academy of Sciences"), labels = c("VHA", "AAS", "EA", "TH", "JAS", "JASR", "QI", "ANT", "JFA", "JAA", "PO", "PNAS")) +
   scale_fill_brewer(palette = "Dark2", limits = c("N", "Graph", "Table", ".docx", "pdf", ".xlsx", ".csv", "Repository")) #Dark2 is a colour blind friendly palette 
   
