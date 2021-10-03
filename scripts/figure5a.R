@@ -40,7 +40,19 @@ method <- Open_phytos %>%
   count(Full.methods.given) %>% 
   mutate(percent = n / sum(n) * 100)
 
+
 library(ggplot2)
+reuseable_rawdata %>% 
+  ggplot(aes(x = factor(Reuse.data), y = percent)) +
+  geom_col(color = "black") + 
+  theme_minimal() + #graph theme
+  labs(title = "Reuseable raw data",
+       x = "Yes or No",
+       y = " Percentage of articles") + #labelling the graph
+  theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1, size = 8)) +
+  scale_fill_brewer(palette = "Dark2")
+
+
 
   
 
