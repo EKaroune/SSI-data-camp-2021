@@ -179,7 +179,8 @@ pre code {
 </div>
 <div id="figure-2-chart-showing-the-location-of-primary-phytolith-data-in-journals-sampled-excludes-the-four-journals-that-contained-no-articles-with-primary-phytolith-data." class="section level3">
 <h3>Figure 2: Chart showing the location of primary phytolith data in journals sampled (excludes the four journals that contained no articles with primary phytolith data).</h3>
-<pre class="r"><code>library(tidyverse)
+<pre class="r"><code>#open packages needed and read in the data
+library(tidyverse)
 ## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
 ## v ggplot2 3.3.5     v purrr   0.3.4
 ## v tibble  3.1.4     v dplyr   1.0.7
@@ -191,6 +192,7 @@ pre code {
 library(here)
 ## here() starts at C:/Users/ekaroune/Emma-Karoune-R-CV/SSI-data-camp-2021/SSI-data-camp-2021
 
+#reading in the data and rename it as a tibble with shorter name
 Open_phytos &lt;- read_csv(here(&quot;raw data&quot;, &quot;Open_Phyto_2020_cleaned.csv&quot;))
 ## Rows: 341 Columns: 19
 ## -- Column specification --------------------------------------------------------
@@ -201,17 +203,21 @@ Open_phytos &lt;- read_csv(here(&quot;raw data&quot;, &quot;Open_Phyto_2020_clea
 ## i Use `spec()` to retrieve the full column specification for this data.
 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
+# selecting the data column and rows for figure, counting by data location
+
 Data_location_all_journal &lt;- Open_phytos %&gt;% 
   rename_with(make.names) %&gt;%
   select(&quot;Journal&quot;, &quot;Data.location&quot;) %&gt;% 
   group_by(Journal) %&gt;% 
   count(Data.location)
 
+# calculating percentage
 data_locations_all_percent &lt;- Data_location_all_journal %&gt;% 
   mutate (Percent = n / sum(n) * 100)
   
 library(ggplot2)
 
+# plotting a barchart 
 data_locations_all_percent %&gt;% 
   ggplot(aes(x = factor(Journal), y = Percent, fill = Data.location)) + #selecting the x and y axis values and also the stacked bar fills fpr the legend 
   geom_col(color = &quot;black&quot;) + # making a stacked bar chart that has black outline
