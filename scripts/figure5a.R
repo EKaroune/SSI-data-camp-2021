@@ -40,7 +40,9 @@ method <- Open_phytos %>%
   count(Full.methods.given) %>% 
   mutate(percent = n / sum(n) * 100)
 
-all_metadata <- bind_cols(reuseable_rawdata, pics, open_access, icpn, method, .name_repair = c("unique"))
+all_metadata <- bind_cols(reuseable_rawdata, pics, open_access, icpn, method, .name_repair = c("unique")) %>% 
+  pivot_longer(all_metadata,)
+
 
 library(ggplot2)
 all_metadata %>% 
