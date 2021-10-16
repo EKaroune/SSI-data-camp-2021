@@ -10,8 +10,8 @@ reuseable_rawdata <- Open_phytos %>%
 rename_with(make.names) %>%
   select(12) %>%
   count(Reuse.data) %>% 
-  mutate(percent = n / sum(n) * 100)
-
+  mutate(percent = n / sum(n) * 100) %>% 
+ 
 #picture
 pics <- Open_phytos %>%
   rename_with(make.names) %>%
@@ -40,16 +40,17 @@ method <- Open_phytos %>%
   count(Full.methods.given) %>% 
   mutate(percent = n / sum(n) * 100)
 
+all_metadata <- bind_cols(reuseable_rawdata, pics, open_access, icpn, method, .name_repair = c("unique"))
 
 library(ggplot2)
-reuseable_rawdata %>% 
-  ggplot(aes(x = factor(Reuse.data), y = percent)) +
+all_metadata %>% 
+  ggplot(aes(x = factor(Reuse.data, Phyto.pictures.present, OA, Used.ICPN.1.0, Full.methods.given), y = percent)) +
   geom_col(color = "black") + 
   theme_minimal() + #graph theme
-  labs(title = "Reuseable raw data",
+  labs(title = "Presence absence",
        x = "Yes or No",
        y = " Percentage of articles") + #labelling the graph
-  theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1, size = 8)) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1, size = 8))+
   scale_fill_brewer(palette = "Dark2")
 
 
