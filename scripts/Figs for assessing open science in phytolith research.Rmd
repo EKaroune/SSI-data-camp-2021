@@ -41,9 +41,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-### Figure 5: Pie charts of percentages for metadata contained in the articles in this study (recorded as presence or absence): a) Reusable raw data; b) Pictures; c) Open access; d) ICPN use; e) Full method.
+### Figure 5: Chart of percentages for presence/absence questions in this study.
 
 ```
-
+{r, code=xfun::read_utf8('fig5-secondgo.R'), collapse=TRUE}
 
 ```
