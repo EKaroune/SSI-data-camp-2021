@@ -41,7 +41,7 @@ method <- Open_phytos %>%
   mutate(percent = n / sum(n) * 100)
 
 
-#create lists of data as alternative
+#create lists of data
 metadata_list <- c("Reuseable.rawdata", "Pictures", "Open.access", "ICPN.use", "Full.method")
 Yes_list <- c(4.4, 74.2, 12.6, 46.9, 68.9)
 No_list <- c(95.6, 25.8, 87.4, 53.1, 31.1)
