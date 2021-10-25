@@ -41,7 +41,9 @@ method <- Open_phytos %>%
   mutate(percent = n / sum(n) * 100)
 
 all_metadata <- bind_cols(reuseable_rawdata, pics, open_access, icpn, method, .name_repair = c("unique")) %>% 
-  pivot_longer(all_metadata,)
+  pivot_longer(all_metadata,cols = 2:3, )
+
+tibble(x=1:5, y=c("a","b","c"))
 
 
 library(ggplot2)
@@ -56,6 +58,8 @@ all_metadata %>%
   scale_fill_brewer(palette = "Dark2")
 
 
+ggplot(by_hwy_mpg) + 
+  geom_bar(aes(x = class, y = hwy_mpg), stat = 'identity')
 
   
 
