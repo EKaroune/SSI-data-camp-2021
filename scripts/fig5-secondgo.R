@@ -64,7 +64,7 @@ metadata_table <- data.frame(metadata, Yes_no, Percentage)
 #plot stacked bar chart 
 ggplot(metadata_table, aes(fill=Yes_no, x=(metadata), y=Percentage)) +
   geom_bar(position="stack", stat = "identity", color="black") + 
-  ggtitle("Percentages for articles in the sample for Presence and absence questions") + ylab("Percentage") + xlab("Presence/absence question")+
+  ggtitle("Chart of percentages for presence/absence questions in this study") + ylab("Percentage") + xlab("Presence/absence question")+
   scale_x_discrete(limits = c("Reusable.rawdata", "Pictures", "Open.access", "ICPN.use", "Full.method"))+
   scale_fill_brewer(palette = "Dark2")
   
